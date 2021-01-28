@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey03"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red03"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_padding_006">
+
+        <TextView
+            android:id="@+id/tv_back_layout_aty_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_006" />
+
+
+        <TextView
+            android:id="@+id/tv_classes_layout_aty_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_padding_006"
+            android:clickable="true"
+            android:text="高一(1)班"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_007" />
+
+        <TextView
+            android:id="@+id/tv_catalog_layout_aty_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_padding_005"
+            android:clickable="true"
+            android:text="沁园春 长沙"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_text_007" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey02"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_padding_005">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_padding_005">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="right|center_horizontal"
+                    android:orientation="vertical">
+
+
+                    <!--课前-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_padding_005">
+
+                        <TextView
+                            android:id="@+id/tv_title01_layout_aty_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="课前"
+                            android:textColor="@color/color_text_content"
+                            android:textSize="@dimen/dimen_text_008" />
+
+                        <View
+                            android:id="@+id/v_line01_layout_aty_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:layout_marginLeft="@dimen/dimen_padding_005"
+                            android:background="@color/grey02"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_title101_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="学习目标"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+
+                    <TextView
+                        android:id="@+id/tv_title102_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="学习任务"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <TextView
+                        android:id="@+id/tv_title103_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="优课助学"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <TextView
+                        android:id="@+id/tv_title104_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="课前练习"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <TextView
+                        android:id="@+id/tv_title105_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="学生质疑"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <TextView
+                        android:id="@+id/tv_title106_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="配套资源"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+
+                    <!--课中-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_padding_005"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_padding_005">
+
+                        <TextView
+                            android:id="@+id/tv_title02_layout_aty_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="课中"
+                            android:textColor="@color/color_text_content"
+                            android:textSize="@dimen/dimen_text_008" />
+
+                        <View
+                            android:id="@+id/v_line02_layout_aty_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:layout_marginLeft="@dimen/dimen_padding_005"
+                            android:background="@color/grey02"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_title201_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="互动课堂"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+
+                    <TextView
+                        android:id="@+id/tv_title202_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="课中练习"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <TextView
+                        android:id="@+id/tv_title203_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="素养评价"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <!--课后-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_padding_005"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dimen_padding_005">
+
+                        <TextView
+                            android:id="@+id/tv_title03_layout_aty_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="课后"
+                            android:textColor="@color/color_text_content"
+                            android:textSize="@dimen/dimen_text_008" />
+
+                        <View
+                            android:id="@+id/v_line03_layout_aty_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:layout_marginLeft="@dimen/dimen_padding_005"
+                            android:background="@color/grey02"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_title301_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="一句话作业"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                    <TextView
+                        android:id="@+id/tv_title302_layout_aty_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="@dimen/dimen_padding_005"
+                        android:text="课后作业"
+                        android:textColor="@color/color_text_content"
+                        android:textSize="@dimen/dimen_text_007" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <com.example.teaching236pad.view.CustomViewpager
+            android:id="@+id/vpager_content_layout_aty_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:flipInterval="30"
+            android:padding="@dimen/dimen_padding_005"
+            android:persistentDrawingCache="animation" />
+    </LinearLayout>
+
+
+</LinearLayout>

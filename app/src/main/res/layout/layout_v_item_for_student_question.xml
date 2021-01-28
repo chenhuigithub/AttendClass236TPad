@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center|left"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_padding_005">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_padding_005"
+            android:background="@drawable/bg_style01"
+            android:padding="@dimen/dimen_padding_005">
+
+            <TextView
+                android:id="@+id/tv_content_layout_adapter_item_for_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_padding_006"
+                android:text="通过预习，已经大致了解了写作背景，现在的问题是对诗的意思还不了解"
+                android:textColor="@color/color_text_content"
+                android:textSize="@dimen/dimen_text_007" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_name_layout_adapter_item_for_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_padding_006"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/dimen_padding_005"
+            android:paddingRight="@dimen/dimen_padding_005"
+            android:text="胡志和"
+            android:textColor="@color/color_text_title01"
+            android:textSize="@dimen/dimen_text_008" />
+
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_layout_v_single_line"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    style="@style/SingBgForRectangle03"
+    android:singleLine="false"
+    android:text="小学"
+    android:textColor="@color/color_text_content"
+    android:textSize="@dimen/dimen_text_007" />

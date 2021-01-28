@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_padding_006">
+
+        <TextView
+            android:id="@+id/tv_sign_layout_fg_student_question"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:background="@color/green02" />
+
+
+        <TextView
+            android:id="@+id/tv_lbl_layout_fg_student_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_padding_004"
+            android:clickable="true"
+            android:text="学生质疑"
+            android:textColor="@color/color_text_content"
+            android:textSize="@dimen/dimen_text_007" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_content_layout_fg_student_question"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="@dimen/dimen_padding_006"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="@dimen/dimen_padding_006"
+        android:background="@drawable/edit_style"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/dimen_padding_005"
+        android:textSize="@dimen/dimen_text_006" />
+
+    <TextView
+        android:id="@+id/tv_finish_layout_fg_student_question"
+        style="@style/SingBgForRectangle03"
+        android:layout_marginLeft="@dimen/dimen_padding_006"
+        android:layout_marginTop="@dimen/dimen_padding_005"
+        android:background="@color/green03"
+        android:gravity="center"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_text_007" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_padding_005">
+
+        <com.example.teaching236pad.view.CustomListView
+            android:id="@+id/lstv_content_layout_fg_student_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_padding_006"
+            android:layout_marginTop="@dimen/dimen_padding_007"
+            android:layout_marginRight="@dimen/dimen_padding_006"
+            android:background="@color/white"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:fadingEdgeLength="0dp"
+            android:listSelector="#00000000"
+            android:scrollbars="none" />
+
+    </ScrollView>
+</LinearLayout>

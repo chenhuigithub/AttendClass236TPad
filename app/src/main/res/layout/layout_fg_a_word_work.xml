@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_padding_006">
+
+        <TextView
+            android:id="@+id/tv_sign_layout_fg_a_word_work"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:background="@color/green02" />
+
+
+        <TextView
+            android:id="@+id/tv_lbl_layout_fg_a_word_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_padding_004"
+            android:clickable="true"
+            android:text="一句话作业"
+            android:textColor="@color/color_text_content"
+            android:textSize="@dimen/dimen_text_007" />
+    </LinearLayout>
+
+    <!--内容-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_padding_006"
+        android:background="@drawable/bg_style01"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_padding_006">
+
+        <TextView
+            android:id="@+id/tv_content_layout_a_word_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/color_text_content"
+            android:textSize="@dimen/dimen_text_006" />
+    </LinearLayout>
+
+</LinearLayout>

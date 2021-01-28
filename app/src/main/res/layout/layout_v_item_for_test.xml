@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center|left"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_padding_005">
+
+    <TextView
+        android:id="@+id/tv_content_layout_v_item_for_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.下列各项中字形无误的一项是(　　)"
+        android:textColor="@color/color_text_content"
+        android:textSize="@dimen/dimen_text_006" />
+
+</LinearLayout>

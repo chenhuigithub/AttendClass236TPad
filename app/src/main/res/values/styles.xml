@@ -1,0 +1,108 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <declare-styleable name="LabelView">
+        <attr name="text" format="string" />
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+
+    <style name="ActivityInOutAnimation" parent="@android:style/Theme.Dialog">
+        <item name="android:activityOpenEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <!-- 自定义对话框样式的dialog -->
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!-- 自定义dialog样式 for loading -->
+    <style name="DialogForLoading" parent="@android:Theme.Dialog" tools:ignore="ResourceCycle">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/shape_for_custom_dialog_for_loading</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="style_custom_dialog" parent="@android:style/Theme.Dialog">
+        <item name="@android:windowEnterAnimation">@anim/mylogout_dialog_enter</item>
+        <item name="@android:windowExitAnimation">@anim/mylogout_dialog_exit</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置window背景透明，也就是去边框 -->
+        <item name="android:background">#ffffff</item>
+        <!-- 设置自定义布局的背景透明 -->
+        <item name="android:windowNoTitle">false</item>
+    </style>
+
+    <!-- <style name="style_green_menu01"> -->
+    <!-- <item name="android:paddingBottom":></item> -->
+    <!-- <item android:paddingLeft="15dp"></item> -->
+    <!-- <item android:paddingRight="15dp"></item> -->
+    <!-- <item android:paddingTop="8dp"></item> -->
+    <!-- </style> -->
+
+
+    <!-- 视频进度条 -->
+    <style name="Media_SeekBar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/rounded_rectangle</item>
+        <item name="android:indeterminateDrawable">@drawable/rounded_rectangle</item>
+        <item name="android:minHeight">8dp</item>
+        <item name="android:maxHeight">8dp</item>
+        <item name="android:thumb">@drawable/selector_for_seekbar_progress_pic</item>
+        <item name="android:thumbOffset">10dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <!--实心小矩形-->
+    <style name="SingBgForRectangle" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dimen_padding_004</item>
+        <item name="android:paddingBottom">@dimen/dimen_padding_004</item>
+        <item name="android:paddingLeft">@dimen/dimen_padding_008</item>
+        <item name="android:paddingRight">@dimen/dimen_padding_008</item>
+    </style>
+
+    <!--实心小矩形-->
+    <style name="SingBgForRectangle02" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dimen_padding_006</item>
+        <item name="android:paddingBottom">@dimen/dimen_padding_006</item>
+        <item name="android:paddingLeft">@dimen/dimen_padding_008</item>
+        <item name="android:paddingRight">@dimen/dimen_padding_008</item>
+    </style>
+
+    <!--实心小矩形-->
+    <style name="SingBgForRectangle03" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dimen_padding_004</item>
+        <item name="android:paddingBottom">@dimen/dimen_padding_004</item>
+        <item name="android:paddingLeft">@dimen/dimen_padding_006</item>
+        <item name="android:paddingRight">@dimen/dimen_padding_006</item>
+    </style>
+
+    <!--实心小矩形-->
+    <style name="SingBgForRectangle04" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dimen_padding_003</item>
+        <item name="android:paddingBottom">@dimen/dimen_padding_003</item>
+        <item name="android:paddingLeft">@dimen/dimen_padding_006</item>
+        <item name="android:paddingRight">@dimen/dimen_padding_006</item>
+    </style>
+
+</resources>

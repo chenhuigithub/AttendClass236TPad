@@ -1,0 +1,2 @@
+rootProject.name='Teaching236Pad'
+include ':app'
