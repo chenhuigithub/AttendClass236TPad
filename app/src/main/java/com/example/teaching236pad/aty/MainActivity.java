@@ -19,6 +19,7 @@ import com.example.teaching236pad.adapter.FragmentVPagerAdapter;
 import com.example.teaching236pad.fg.AWordWorkFg;
 import com.example.teaching236pad.fg.AccomplishmentAssessFg;
 import com.example.teaching236pad.fg.CourseFg;
+import com.example.teaching236pad.fg.InteractiveClassesFg;
 import com.example.teaching236pad.fg.StudentQuestionFg;
 import com.example.teaching236pad.fg.StudyTargetFg;
 import com.example.teaching236pad.fg.StudyTaskFg;
@@ -26,16 +27,22 @@ import com.example.teaching236pad.fg.SubsidiaryResFg;
 import com.example.teaching236pad.fg.WorkAfterClassesFg;
 import com.example.teaching236pad.fg.TestBeforeClassesFg;
 import com.example.teaching236pad.fg.TestInClassesFg;
+import com.example.teaching236pad.listener.InterfacesCallback;
+import com.example.teaching236pad.listener.OnListenerForPlayVideoSendOutInfo;
+import com.example.teaching236pad.model.VideoAndAudioInfoModel;
+import com.example.teaching236pad.util.ConstantsUtils;
 import com.example.teaching236pad.util.NotificationUtils;
 import com.example.teaching236pad.util.PicFormatUtils;
 import com.example.teaching236pad.util.ServerRequestUtils;
+import com.example.teaching236pad.util.ValidateFormatUtils;
 import com.example.teaching236pad.util.ViewUtils;
 import com.example.teaching236pad.view.CustomViewpager;
 
 import java.util.ArrayList;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements InterfacesCallback.ICanKnowSth2, OnListenerForPlayVideoSendOutInfo, InterfacesCallback.ICanKnowNotication {
     private ArrayList<Fragment> fragmentsList;
+    private String currentPage = ConstantsUtils.MR;// 当前正在传递消息的Fragment名称，默认是配套资源页面
 
     private NotificationUtils nUtils; // 通知栏工具
     private BroadcastReceiver receiver;// 广播
@@ -43,6 +50,7 @@ public class MainActivity extends FragmentActivity {
     private ViewUtils vUtils;// 布局工具
     private PicFormatUtils pUtils;// 图片工具
     private ServerRequestUtils requestUtils;// 请求服务器的工具
+    private OnListenerForPlayVideoSendOutInfo callbackForCourse;// 优课助学回调
 
     private Fragment studyTargetFg;//学习目标
     private Fragment studyTaskFg;//学习任务
@@ -133,12 +141,15 @@ public class MainActivity extends FragmentActivity {
 
         studyTargetFg = new StudyTargetFg();
         studyTaskFg = new StudyTaskFg();
+
         courseFg = new CourseFg();
+        callbackForCourse = (OnListenerForPlayVideoSendOutInfo) courseFg;
+
         testBeforeClassesFg = new TestBeforeClassesFg();
         studentQuestionFg = new StudentQuestionFg();
         subsidiaryResFg = new SubsidiaryResFg();
 
-        interactiveClasses = new StudyTaskFg();
+        interactiveClasses = new InteractiveClassesFg();
         testInClassesFg = new TestInClassesFg();
         accomplishmentAssess = new AccomplishmentAssessFg();
 
@@ -163,6 +174,61 @@ public class MainActivity extends FragmentActivity {
                 fragmentsList));
         vper.setCurrentItem(0);
         vper.setOnPageChangeListener(new MyOnPageChangeListener());
+    }
+
+    /**
+     * 显示提示栏
+     */
+    private void showNotification(int notificationID, int count) {
+        nUtils.showNotification(notificationID, count);
+        nUtils.updateProgress(notificationID, count);
+
+        if (count == 100) {
+            nUtils.cancel(notificationID);
+        }
+    }
+
+    @Override
+    public void getInfo(String str) {
+        if (!ValidateFormatUtils.isEmpty(str)) {
+            currentPage = str;
+        }
+    }
+
+
+    @Override
+    public void ICanGetVideoInfoCurrentPlay(VideoAndAudioInfoModel info) {
+        if (ConstantsUtils.ER.equals(currentPage)) {
+            callbackForCourse.ICanGetVideoInfoCurrentPlay(info);
+        }
+    }
+
+    @Override
+    public void doAfterClickBack() {
+        if (ConstantsUtils.ER.equals(currentPage)) {
+            callbackForCourse.doAfterClickBack();
+        }
+    }
+
+    @Override
+    public void doSwitchFullScreen() {
+        if (ConstantsUtils.ER.equals(currentPage)) {
+            callbackForCourse.doSwitchFullScreen();
+        }
+    }
+
+    @Override
+    public void doSwitchHalfScreen() {
+        if (ConstantsUtils.ER.equals(currentPage)) {
+            callbackForCourse.doSwitchHalfScreen();
+        }
+    }
+
+    @Override
+    public void getNotication(String type, int count, int notificationID) {
+        if ("progressbar_notification".equals(type)) {
+            showNotification(notificationID, count);
+        }
     }
 
 

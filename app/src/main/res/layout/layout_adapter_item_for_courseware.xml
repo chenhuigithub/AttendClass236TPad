@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_all_layout_adapter_item_for_course"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/dimen_padding_002" >
+
+    <ImageView
+        android:id="@+id/iv_file_show"
+        android:layout_width="600dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.8"
+        android:scaleType="fitXY"
+        android:visibility="visible" />
+
+</LinearLayout>

@@ -12,6 +12,7 @@
     <color name="blue6">#5EC0A9</color>
     <color name="blue7">#047DD4</color>
     <color name="blue8">#07519a</color>
+    <color name="blue9">#1E9FFF</color>
     <color name="light_blue">#CCECFB</color>
     <color name="light_blue01">#EBF8FD</color>
     <color name="light_blue02">#82D1FF</color>
@@ -65,6 +66,7 @@
     <color name="orange01">#FE9602</color>
     <color name="orange02">#FFC34F</color>
     <color name="yellow01">#FDEECE</color>
+    <color name="yellow02">#FFB800</color>
 
 
     <!-- 橘红色 -->
