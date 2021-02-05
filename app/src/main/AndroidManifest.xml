@@ -21,6 +21,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name=".application.CustomApplication"
         android:allowBackup="true"
         android:configChanges="orientation|screenSize|keyboardHidden"
         android:hardwareAccelerated="false"
@@ -87,6 +88,13 @@
         <!--随机点名-->
         <activity
             android:name=".aty.RandomRollCallAty"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/ActivityInOutAnimation" />
+
+        <activity
+            android:name=".aty.DrawBoardAty"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="fullSensor"

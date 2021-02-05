@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.teaching236pad.R;
 import com.example.teaching236pad.adapter.StudentAdapter;
 import com.example.teaching236pad.model.Student;
+import com.example.teaching236pad.util.ConstantsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,7 @@ import java.util.List;
  * @author chenhui 2021.02.04
  */
 public class StudentListAty extends Activity {
-    private String[] names = {"李小明", "宋公明", "孙悟空", "曹孟德", "卢俊义", "王朗", "史湘云", "鲁子敬", "贾探春", "司马仲达", "沙悟净",
-            "燕小乙", "张翼德", "刘唐", "周公瑾", "林黛玉", "荀文若", "吴用", "张子房", "郭奉孝", "韩信", "公孙胜", "孙仲谋", "石秀", "许攸"};
+    private static String[] names = ConstantsUtils.NAMES;
 
     private List<Student> studentList;//学生列表
     private StudentAdapter studentAdapter;
@@ -45,7 +45,7 @@ public class StudentListAty extends Activity {
         setContentView(R.layout.layout_aty_student_list);
 
         studentList = new ArrayList<Student>();
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < names.length; i++) {
             Student stu = new Student();
             stu.setId("id" + String.valueOf(i));
             stu.setName(names[i]);

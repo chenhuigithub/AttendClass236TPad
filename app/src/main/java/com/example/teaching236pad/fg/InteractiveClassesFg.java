@@ -20,7 +20,9 @@ import com.example.teaching236pad.adapter.CustomPager03Adapter;
 import com.example.teaching236pad.adapter.GalleryAdapter;
 import com.example.teaching236pad.aty.RandomRollCallAty;
 import com.example.teaching236pad.aty.StudentListAty;
+import com.example.teaching236pad.aty.DrawBoardAty;
 import com.example.teaching236pad.model.Courseware;
+import com.example.teaching236pad.util.ConstantsUtils;
 import com.example.teaching236pad.view.CustomListView;
 
 import java.util.ArrayList;
@@ -366,6 +368,12 @@ public class InteractiveClassesFg extends BaseNotPreLoadFg {
 
                     break;
                 case R.id.tv_electronic_whiteboard_layout_fg_ic://电子白板
+                    Intent intent2 = new Intent(getActivity(),
+                            DrawBoardAty.class);
+                    //白板状态
+                    intent2.putExtra(DrawBoardAty.SHOW_STYLE,
+                            ConstantsUtils.WHITE_BOARD);
+                    startActivity(intent2);
 
                     break;
                 case R.id.ll_previous_layout_fg_class:// 上一个（小图）

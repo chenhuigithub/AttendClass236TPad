@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/ll_wrapper_title_layout_aty_db"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey03">
+
+        <TextView
+            android:id="@+id/tv_lbl_layout_aty_db"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_padding_005"
+            android:padding="@dimen/dimen_padding_006"
+            android:text="电子白板"
+            android:textColor="@color/color_text_title01"
+            android:textSize="@dimen/dimen_text_006" />
+
+        <!-- 关闭 -->
+
+        <LinearLayout
+            android:id="@+id/ll_close_layout_aty_db"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/grey03"
+            android:clickable="true"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/iv_close_layout_aty_db"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@drawable/error"
+                android:clickable="false"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--菜单栏-->
+    <include
+        android:id="@+id/in_v_draw_menu_layout_aty_db"
+        layout="@layout/layout_v_draw_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <FrameLayout
+        android:id="@+id/fl_wrapper_content_layout_aty_db"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/in_v_draw_menu_layout_aty_db"
+        android:layout_below="@id/ll_wrapper_title_layout_aty_db"
+        android:background="@color/white"
+        android:focusable="false"
+        android:padding="@dimen/dimen_padding_005"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_layout_adapter_item_for_color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ppt01_big"
+            android:clickable="true"
+            android:scaleType="fitXY" />
+    </FrameLayout>
+
+
+    <com.example.teaching236pad.view.CustomSurfaceView
+        android:id="@+id/sfv_board_layout_activity_aty_db"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/in_v_draw_menu_layout_aty_db"
+        android:layout_below="@id/ll_wrapper_title_layout_aty_db"
+        android:layout_margin="@dimen/dimen_padding_005"
+        android:background="@drawable/selector_for_grey_stroke_rectangle"
+        android:visibility="visible" />
+
+    <!-- 退出 -->
+
+    <TextView
+        android:id="@+id/tv_exit_layout_activity_aty_db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/selector_for_exit"
+        android:clickable="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:scaleType="fitXY"
+        android:text="退出"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <!-- 右下角按钮 -->
+
+    <ImageView
+        android:id="@+id/iv_menu_layout_activity_aty_db"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/menu"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+</RelativeLayout>

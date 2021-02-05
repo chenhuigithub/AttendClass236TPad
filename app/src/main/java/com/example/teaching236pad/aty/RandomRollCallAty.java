@@ -19,6 +19,7 @@ import androidx.annotation.RequiresApi;
 import com.example.teaching236pad.R;
 import com.example.teaching236pad.adapter.StudentAdapter;
 import com.example.teaching236pad.model.Student;
+import com.example.teaching236pad.util.ConstantsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +33,7 @@ import java.util.TimerTask;
  */
 
 public class RandomRollCallAty extends Activity {
-    private String[] names = {"李小明", "宋公明", "孙悟空", "曹孟德", "卢俊义", "王朗", "史湘云", "鲁子敬", "贾探春", "司马仲达", "沙悟净",
-            "燕小乙", "张翼德", "刘唐", "周公瑾", "林黛玉", "荀文若", "吴用", "张子房", "郭奉孝", "韩信", "公孙胜", "孙仲谋", "石秀", "许攸"};
-
+    private static String[] names = ConstantsUtils.NAMES;
     /**
      * 是否开始，0-否，1-是
      */
@@ -43,8 +42,8 @@ public class RandomRollCallAty extends Activity {
     private Timer mTimer;
 
 
-    private List<Student> studentList;//学生列表
-    private StudentAdapter studentAdapter;
+//    private List<Student> studentList;//学生列表
+//    private StudentAdapter studentAdapter;
 
     private GridView gdvClassName;// 学生名单
     private LinearLayout tvClose;// 关闭
@@ -64,13 +63,13 @@ public class RandomRollCallAty extends Activity {
 
         mHandler = new Handler(new InnerCallback());
 
-        studentList = new ArrayList<Student>();
-        for (int i = 0; i < 30; i++) {
-            Student stu = new Student();
-            stu.setId("id" + String.valueOf(i));
-            stu.setName("李小明");
-            studentList.add(stu);
-        }
+//        studentList = new ArrayList<Student>();
+//        for (int i = 0; i < 40; i++) {
+//            Student stu = new Student();
+//            stu.setId("id" + String.valueOf(i));
+//            stu.setName(names[i]);
+//            studentList.add(stu);
+//        }
 
 
         tvSwitch = (TextView) findViewById(R.id.tv_switch_layout_aty_random_roll_call);
@@ -87,7 +86,7 @@ public class RandomRollCallAty extends Activity {
         });
 
         tvName = (TextView) findViewById(R.id.tv_name_layout_aty_random_roll_call);
-        tvName.setText(names[0]);
+        tvName.setText("");
 
         tvClose = (LinearLayout) findViewById(R.id.ll_close_layout_aty_random_roll_call);
         tvClose.setOnClickListener(new Listeners());
@@ -125,8 +124,8 @@ public class RandomRollCallAty extends Activity {
         tvSwitch.setText("开始");
         mTimer.cancel();
 
-        tvName.setTextColor(getResources().getColor(R.color.red03, null));
-        tvSwitch.setTextColor(getResources().getColor(R.color.white, null));
+        tvName.setTextColor(getResources().getColor(R.color.blue9, null));
+        tvSwitch.setTextColor(getResources().getColor(R.color.color_text_content, null));
     }
 
     private class InnerCallback implements Handler.Callback {
@@ -139,7 +138,7 @@ public class RandomRollCallAty extends Activity {
             int index = msg.what;
             tvName.setText(names[index]);
             tvName.setTextColor(getResources().getColor(R.color.color_text_content, null));
-            tvSwitch.setTextColor(getResources().getColor(R.color.red03, null));
+            tvSwitch.setTextColor(getResources().getColor(R.color.blue9, null));
 
             return true;
 

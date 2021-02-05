@@ -317,5 +317,30 @@ public class ConstantsUtils {
      */
     public final static String CATALOG_NAME = "CATALOG_NAME";
 
+    /**
+     * 涂鸦(画笔)
+     */
+    public static final int GRAFFITI = 0100;
+
+    /**
+     * 白板
+     */
+    public static final int WHITE_BOARD = 0101;
+
+    /**
+     * 全屏
+     */
+    public static final int FULL_SCREEN = 0102;
+
+    /**
+     * 橡皮擦
+     */
+    public static final int ERASER = 0103;
+
+    public static final String[] NAMES = {"李小明", "宋公明", "孙悟空", "曹孟德", "卢俊义", "王朗", "史湘云", "鲁子敬", "贾探春", "司马仲达", "沙悟净",
+            "燕小乙", "张翼德", "刘唐", "周公瑾", "林黛玉", "荀文若", "吴用", "张子房", "郭奉孝", "韩信", "公孙胜", "孙仲谋", "石秀", "许攸",
+            "关胜", "花荣", "阮小五", "吕奉先", "庞士元", "赵子龙", "姜维", "孙伯符", "黄公覆", "陆伯言", "袁本初", "陈公台", "陶谦", "郭靖",
+            "杨康"};
+
 
 }
