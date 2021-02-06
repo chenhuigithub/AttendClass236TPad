@@ -12,17 +12,11 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 
 import com.example.teaching236pad.R;
-import com.example.teaching236pad.adapter.StudentAdapter;
-import com.example.teaching236pad.model.Student;
 import com.example.teaching236pad.util.ConstantsUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -52,7 +46,7 @@ public class RandomRollCallAty extends Activity {
     private TextView tvName;// 学生姓名
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -74,7 +68,6 @@ public class RandomRollCallAty extends Activity {
 
         tvSwitch = (TextView) findViewById(R.id.tv_switch_layout_aty_random_roll_call);
         tvSwitch.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 if (isStart == 0) {
@@ -118,27 +111,24 @@ public class RandomRollCallAty extends Activity {
         }, 0, 80);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     private void stop() {
         isStart = 0;
         tvSwitch.setText("开始");
         mTimer.cancel();
 
-        tvName.setTextColor(getResources().getColor(R.color.blue9, null));
-        tvSwitch.setTextColor(getResources().getColor(R.color.color_text_content, null));
+        tvName.setTextColor(ContextCompat.getColor(this, R.color.blue9));
+        tvSwitch.setTextColor(ContextCompat.getColor(this, R.color.color_text_content));
     }
 
     private class InnerCallback implements Handler.Callback {
 
-
-        @RequiresApi(api = Build.VERSION_CODES.M)
         @Override
-        public boolean handleMessage(@NonNull Message msg) {
+        public boolean handleMessage(Message msg) {
             //这里接收到sendMessage发送过来的消息，当前线程为UI线程
             int index = msg.what;
             tvName.setText(names[index]);
-            tvName.setTextColor(getResources().getColor(R.color.color_text_content, null));
-            tvSwitch.setTextColor(getResources().getColor(R.color.blue9, null));
+            tvName.setTextColor(ContextCompat.getColor(RandomRollCallAty.this, R.color.color_text_content));
+            tvSwitch.setTextColor(ContextCompat.getColor(RandomRollCallAty.this, R.color.blue9));
 
             return true;
 
