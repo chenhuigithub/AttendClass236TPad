@@ -18,6 +18,7 @@ import com.example.teaching236pad.R;
 import com.example.teaching236pad.adapter.CourseCatalogLsvAdapter;
 import com.example.teaching236pad.model.Catalog;
 import com.example.teaching236pad.model.KeyValue;
+import com.example.teaching236pad.util.ConstantsUtils;
 import com.example.teaching236pad.util.ValidateFormatUtils;
 import com.example.teaching236pad.util.ViewUtils;
 import com.example.teaching236pad.view.CustomGridView;
@@ -40,10 +41,11 @@ public class ChoiceMaterialAty extends FragmentActivity {
     private List<KeyValue> editionList;// 版本
     private List<KeyValue> moduleList;// 模块
     private List<Catalog> catalogList;// 目录
-    private KeyValue catelogSelected;// 已选目录
+    private KeyValue catalogSelected;// 已选目录
 
     private KeyValue periodSelected;// 已选学段
     private KeyValue subjectSelected;// 已选科目
+    private KeyValue classesSelected;// 已选班级
     private KeyValue editionSelected;// 已选版本
     private KeyValue moduleSelected;// 已选模块
 
@@ -79,13 +81,14 @@ public class ChoiceMaterialAty extends FragmentActivity {
 
         periodSelected = new KeyValue();
         subjectSelected = new KeyValue();
+        classesSelected = new KeyValue();
         editionSelected = new KeyValue();
         moduleSelected = new KeyValue();
-        catelogSelected = new KeyValue();
+        catalogSelected = new KeyValue();
 
         gdvClasses = (CustomGridView) findViewById(R.id.gdv_calsses_layout_aty_choice_material);
-        gdvModule1 = (CustomGridView) findViewById(R.id.gdv_edition1_layout_aty_choice_material);
-        gdvEdition1 = (CustomGridView) findViewById(R.id.gdv_module1_layout_aty_choice_material);
+        gdvEdition1 = (CustomGridView) findViewById(R.id.gdv_edition1_layout_aty_choice_material);
+        gdvModule1 = (CustomGridView) findViewById(R.id.gdv_module1_layout_aty_choice_material);
 
         //目录
         llCatalog = (LinearLayout) findViewById(R.id.ll_wrapper_catalog_layout_aty_choice_material);
@@ -95,82 +98,89 @@ public class ChoiceMaterialAty extends FragmentActivity {
 
         KeyValue kv = new KeyValue();
         kv.setId("c1");
-        kv.setName("2019级1班");
+        kv.setName("高一(1)班");
         kv.setChoiced(true);
 
         KeyValue kv2 = new KeyValue();
-        kv2.setId("c1");
-        kv2.setName("2019级1班");
+        kv2.setId("c2");
+        kv2.setName("高一(2)班");
         kv2.setChoiced(false);
+
+        KeyValue kv3 = new KeyValue();
+        kv3.setId("c3");
+        kv3.setName("高一(3)班");
+        kv3.setChoiced(false);
 
         classesList.add(kv);
         classesList.add(kv2);
+        classesList.add(kv3);
 
+        classesSelected = classesList.get(0);
         showGdvClasses(classesList, gdvClasses);
 
-        KeyValue kv3 = new KeyValue();
-        kv3.setId("e1");
-        kv3.setName("统编版");
-        kv3.setChoiced(true);
-        editionList.add(kv3);
+        KeyValue kv5 = new KeyValue();
+        kv5.setId("e1");
+        kv5.setName("统编版");
+        kv5.setChoiced(true);
+        editionList.add(kv5);
 
+        editionSelected = editionList.get(0);
         showGdvEdition(editionList, gdvEdition1);
 
         KeyValue kv4 = new KeyValue();
         kv4.setId("m1");
         kv4.setName("必修 上册");
         kv4.setChoiced(true);
-
-        KeyValue kv5 = new KeyValue();
-        kv5.setId("m2");
-        kv5.setName("必修 下册");
-        kv5.setChoiced(false);
         moduleList.add(kv4);
-        moduleList.add(kv5);
 
+        KeyValue kv6 = new KeyValue();
+        kv6.setId("m2");
+        kv6.setName("必修 下册");
+        kv6.setChoiced(false);
+        moduleList.add(kv6);
+
+        moduleSelected = moduleList.get(0);
         showGdvModule(moduleList, gdvModule1);
 
         initLstvForCatalog();
+
 
         // 目录
 //        cAdapter = new CatalogAdapter(this, catalogList, 0);
 //        gdvCatalog.setAdapter(cAdapter);
 //        cAdapter.setCurrentPosition(-1);
 
+        String[] units = {"第一单元", "第二单元", "第三单元"};
+        String[] catalog = {"1.沁园春·长沙", "2.立在地球边上放哨", "红烛", "致云雀", "3.百合花", "哦，香雪"};
 
-        Catalog ca = new Catalog();
-        ca.setId("ca01");
-        ca.setName("第一单元");
-        ca.setPid("");
-        ca.setPname("");
-        ca.setSelected(true);
+        for (int i = 0; i <= 2; i++) {
+            Catalog unit = new Catalog();
+            unit.setId("id_unid" + i);
+            unit.setName(units[i]);
+            unit.setPid("");
+            unit.setPname("");
+            unit.setSelected(true);
 
-        List<Catalog> list001 = new ArrayList<Catalog>();
-        Catalog ca001 = new Catalog();
-        ca001.setId("ca001");
-        ca001.setPid("ca01");
-        ca001.setId("ca001");
-        ca001.setSelected(true);
-        ca001.setPname("第一单元");
-        ca001.setName("1.沁园春·长沙");
+            List<Catalog> catalog01List = new ArrayList<Catalog>();
 
-        Catalog ca002 = new Catalog();
-        ca002.setId("ca002");
-        ca002.setPid("ca01");
-        ca002.setId("ca002");
-        ca002.setSelected(true);
-        ca002.setPname("第一单元");
-        ca002.setName("2.立在地球边上放哨");
+            for (int j = 0; j <= 5; j++) {
+                Catalog ca = new Catalog();
+                ca.setId("id_ca" + j);
+                ca.setPid(unit.getId());
+                ca.setSelected(true);
+                ca.setPname(units[i]);
+                ca.setName(catalog[j]);
 
-        list001.add(ca001);
-        list001.add(ca002);
+                catalog01List.add(ca);
+            }
 
-        ca.setCatalog(list001);
 
-        catalogList.add(ca);
-        catalogList.add(ca);
+            unit.setCatalog(catalog01List);
 
-        setCatalogAdapter(unitIDCurr, catelogSelected.getId());
+            catalogList.add(unit);
+        }
+
+        setCatalogAdapter(unitIDCurr, catalogSelected.getId());
 
     }
 
@@ -185,7 +195,7 @@ public class ChoiceMaterialAty extends FragmentActivity {
     }
 
     /**
-     * 展示版本Gdv布局
+     * 展示班级Gdv布局
      *
      * @param list 数据
      */
@@ -205,8 +215,8 @@ public class ChoiceMaterialAty extends FragmentActivity {
             gdv.addChild(vItem);
 
             if (kv != null) {
-                if (editionSelected != null) {
-                    if (kv.getId().equals(editionSelected.getId())) {
+                if (classesSelected != null) {
+                    if (kv.getId().equals(classesSelected.getId())) {
                         tvName.setBackgroundResource(R.color.clog);
                         tvName.setTextColor(getResources().getColor(R.color.white));
                     } else {
@@ -220,15 +230,15 @@ public class ChoiceMaterialAty extends FragmentActivity {
             vItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    editionSelected = kv;
+                    classesSelected = kv;
                     refreshWidgetForSelectEdition();
 
                     // 显示加载框
-                    vUtils.showLoadingDialog("");
+//                    vUtils.showLoadingDialog("");
                     //请求数据
 //                    requestDataFromServer(false);
 
-                    showGdvClasses(classesList, gdvEdition1);
+                    showGdvClasses(classesList, gdvClasses);
                     showGdvEdition(editionList, gdvEdition1);
                     showGdvModule(moduleList, gdvModule1);
                 }
@@ -277,7 +287,7 @@ public class ChoiceMaterialAty extends FragmentActivity {
                     refreshWidgetForSelectEdition();
 
                     // 显示加载框
-                    vUtils.showLoadingDialog("");
+//                    vUtils.showLoadingDialog("");
                     //请求数据
 //                    requestDataFromServer(false);
 
@@ -328,13 +338,14 @@ public class ChoiceMaterialAty extends FragmentActivity {
                     refreshWidgetForSelectModule();
 
                     // 显示加载框
-                    vUtils.showLoadingDialog("");
+//                    vUtils.showLoadingDialog("");
                     //请求数据
                     //requestdatafromserver(false);
 
                     showGdvModule(moduleList, gdvModule1);
                 }
             });
+
         }
     }
 
@@ -410,7 +421,18 @@ public class ChoiceMaterialAty extends FragmentActivity {
     }
 
     public void onClick(View v) {
+        if (v instanceof TextView) {
+            TextView tv = (TextView) v;
+            String catalogName = tv.getText().toString().trim();
+
+            catalogSelected.setName(catalogName);
+        }
+
+
         Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("UNIT_NAME", classesSelected.getName());
+        i.putExtra(ConstantsUtils.CATALOG_ID, catalogSelected.getId());
+        i.putExtra(ConstantsUtils.CATALOG_NAME, catalogSelected.getName());
         startActivity(i);
     }
 

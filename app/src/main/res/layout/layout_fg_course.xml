@@ -32,8 +32,8 @@
 
     <RelativeLayout
         android:id="@+id/rl_video_layout_fg_course"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="750dp"
+        android:layout_height="500dp"
         android:layout_gravity="center"
         android:background="@android:color/white"
         android:flipInterval="30"

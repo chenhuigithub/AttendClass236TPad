@@ -2,6 +2,7 @@ package com.example.teaching236pad.aty;
 
 import android.content.BroadcastReceiver;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -9,6 +10,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -44,6 +46,10 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
     private ArrayList<Fragment> fragmentsList;
     private String currentPage = ConstantsUtils.MR;// 当前正在传递消息的Fragment名称，默认是配套资源页面
 
+    private String unitName = "";//单元名称
+    private String catalogID = "";//目录ID
+    private String catalogName = "";//目录名称
+
     private NotificationUtils nUtils; // 通知栏工具
     private BroadcastReceiver receiver;// 广播
     private LocalBroadcastManager broadcastManager;// 广播接收
@@ -66,6 +72,9 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
     private Fragment aWordWork;//一句话作业
     private Fragment workAfterClasses;//课后作业
 
+    private TextView tvUnitName;//单元名称
+    private TextView tvCatalogName;//目录名称
+
     private GridView gdvTitle02;//二级标题
     private CustomViewpager vper;//分页布局
     private TextView tvStudyTarget;//学习目标
@@ -82,6 +91,8 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
     private TextView tvAWordWork;//一句话作业
     private TextView tvWorkAfterClasses;//课后作业
 
+    private TextView tvLastTab;//前次点击的标签
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,15 +103,21 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
 
         setContentView(R.layout.layout_aty_main);
 
+        dealWithExtras();
+
         // 初始化通知栏的进度条
         nUtils = new NotificationUtils(this);
         pUtils = new PicFormatUtils();
         requestUtils = new ServerRequestUtils(this);
         vUtils = new ViewUtils(this);
 
+        tvUnitName = (TextView) findViewById(R.id.tv_classes_layout_aty_main);
+        tvCatalogName = (TextView) findViewById(R.id.tv_catalog_layout_aty_main);
+
         vper = (CustomViewpager) findViewById(R.id.vpager_content_layout_aty_main);
 
         tvStudyTarget = (TextView) findViewById(R.id.tv_title101_layout_aty_main);
+
         tvStudyTask = (TextView) findViewById(R.id.tv_title102_layout_aty_main);
         tvCourseFg = (TextView) findViewById(R.id.tv_title103_layout_aty_main);
         tvTestBeforeClassesFg = (TextView) findViewById(R.id.tv_title104_layout_aty_main);
@@ -129,6 +146,33 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
 
         tvAWordWork.setOnClickListener(new MyOnClickListener(9));
         tvWorkAfterClasses.setOnClickListener(new MyOnClickListener(10));
+
+        tvUnitName.setText(unitName);
+        tvCatalogName.setText(catalogName);
+
+        tvStudyTarget.performClick();
+    }
+
+    private void dealWithExtras() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle == null) {
+            return;
+        }
+
+        String unitName = bundle.getString("UNIT_NAME");
+        if (!TextUtils.isEmpty(unitName)) {
+            this.unitName = unitName;
+        }
+
+        String catalogID = bundle.getString(ConstantsUtils.CATALOG_ID);
+        if (!TextUtils.isEmpty(catalogID)) {
+            this.catalogID = catalogID;
+        }
+
+        String catalogName = bundle.getString(ConstantsUtils.CATALOG_NAME);
+        if (!TextUtils.isEmpty(catalogName)) {
+            this.catalogName = catalogName;
+        }
     }
 
     /**
@@ -244,6 +288,15 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
 
         @Override
         public void onClick(View v) {
+            TextView tv = (TextView) v;
+            tv.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.red03));
+
+            if (tvLastTab != null) {
+                tvLastTab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.color_text_title01));
+            }
+
+            tvLastTab = tv;
+
             vper.setCurrentItem(index);
         }
     }

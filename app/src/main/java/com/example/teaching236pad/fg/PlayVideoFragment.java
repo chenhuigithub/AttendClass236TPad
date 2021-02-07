@@ -156,7 +156,6 @@ public class PlayVideoFragment extends Fragment implements
             } else {
                 // 避免退出此界面后视频音频仍播放的问题，liduohong，2016.12.15
                 mHandler.removeCallbacksAndMessages(UPDATE_PROGRESS);
-
             }
         }
     };
@@ -881,15 +880,15 @@ public class PlayVideoFragment extends Fragment implements
         player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-//                mp.setOnInfoListener(new MediaPlayer.OnInfoListener(){
-//
-//                    @Override
-//                    public boolean onInfo(MediaPlayer mp, int what, int extra) {
-//                        if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START)
-//                            sf_vedio.setBackgroundColor(Color.TRANSPARENT);
-//                        return true;
-//                    }
-//                });
+                mp.setOnInfoListener(new MediaPlayer.OnInfoListener(){
+
+                    @Override
+                    public boolean onInfo(MediaPlayer mp, int what, int extra) {
+                        if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START)
+                            sf_vedio.setBackgroundColor(Color.TRANSPARENT);
+                        return true;
+                    }
+                });
 
 
                 // 总播放时间

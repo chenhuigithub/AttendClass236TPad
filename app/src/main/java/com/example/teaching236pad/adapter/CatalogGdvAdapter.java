@@ -69,7 +69,7 @@ public class CatalogGdvAdapter extends BaseListAdapter<Catalog> {
                                         Catalog dataObj) {
         // 目录
         TextView tvCatalogName = (TextView) resultView
-                .findViewById(R.id.tv_name_layout_adapter_item_for_course);
+                .findViewById(R.id.tv_name_layout_item_for_catalog);
         tvCatalogName.setText("\n" + dataObj.getName() + "\n");
 
         tvCatalogName.setTag(dataObj);

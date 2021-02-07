@@ -101,6 +101,15 @@
             android:theme="@style/ActivityInOutAnimation" />
 
 
+        <!--视频全屏-->
+        <activity
+            android:name=".aty.PlayVideoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="fullSensor"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+
     </application>
 
 </manifest>

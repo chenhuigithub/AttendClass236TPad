@@ -19,6 +19,7 @@ import com.example.teaching236pad.model.VideoAudio;
 import com.example.teaching236pad.util.ConstantsForServerUtils;
 import com.example.teaching236pad.util.ConstantsUtils;
 import com.example.teaching236pad.util.UrlUtils;
+import com.example.teaching236pad.util.Utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -51,20 +52,16 @@ public class CourseFg extends BaseNotPreLoadFg implements
 
             videoList = new ArrayList<VideoAudio>();
 
-            //测试地址，2019.11.08，chenhui
-            String url = "/upload/extend/video/201807/06/201807061457305988.mp4";
-            VideoAudio va = new VideoAudio();
-            va.setTitle("视频" + String.valueOf("1"));
-            va.setPath(UrlUtils.PREFIX + url.toString());
 
-            if (videoList.size() > 0) {
-                videoList.clear();
-            }
-            // 添加
-            videoList.add(va);
+            isPrepared = true;
 
-            setVideoView();
         }
+
+        // 因为共用一个Fragment视图，所以当前这个视图已被加载到Activity中，必须先清除后再加入Activity
+        Utils.removeParent(allFgView);
+
+        // 标志当前页面可见
+        isPrepared = true;
 
         return allFgView;
     }
@@ -106,11 +103,31 @@ public class CourseFg extends BaseNotPreLoadFg implements
         if (!isPrepared || !isVisible || hasLoadOnce) {
             return;
         }
+
+        //测试地址，2019.11.08，chenhui
+        String url = "http://www.mibeike.com/upload/extend/video/201807/06/201807061457305988.mp4";
+        VideoAudio va = new VideoAudio();
+        va.setTitle("视频" + String.valueOf("1"));
+        va.setPath(url.toString());
+
+        if (videoList.size() > 0) {
+            videoList.clear();
+        }
+        // 添加
+        videoList.add(va);
+
+        setVideoView();
     }
 
     @Override
     public void ICanGetVideoInfoCurrentPlay(VideoAndAudioInfoModel info) {
+        videoCurr = new VideoAudio();
+        videoCurr.setId(info.getId());
+        videoCurr.setPath(info.getUri());
+        videoCurr.setRemark("");
+        videoCurr.setTitle(info.getName());
 
+        initVideo(videoCurr);
     }
 
     @Override
@@ -134,6 +151,8 @@ public class CourseFg extends BaseNotPreLoadFg implements
     @Override
     public void onResume() {
         super.onResume();
+
+//        initVideo(videoCurr);
     }
 
     @Override
