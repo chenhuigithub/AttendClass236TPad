@@ -57,11 +57,14 @@ public class CourseFg extends BaseNotPreLoadFg implements
 
         }
 
+
         // 因为共用一个Fragment视图，所以当前这个视图已被加载到Activity中，必须先清除后再加入Activity
         Utils.removeParent(allFgView);
 
         // 标志当前页面可见
         isPrepared = true;
+
+        lazyLoad();
 
         return allFgView;
     }
