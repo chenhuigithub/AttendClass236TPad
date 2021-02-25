@@ -698,7 +698,7 @@ public class PlayVideoFragment extends Fragment implements
     /**
      * 重新播放视频
      */
-    private void restartVideo() {
+    public void restartVideo() {
         sf_vedio.setBackgroundResource(R.color.transparent);
 
         // Log.e("进度3", seekProgress + "");
@@ -969,6 +969,8 @@ public class PlayVideoFragment extends Fragment implements
                 restartVideo();
                 // playVideo();
             } else if (viewId == R.id.ll_back_layout_aty_showmovie) {// 返回
+                stopVideo();
+
                 // 重写finish()方法
                 finished();
             } else if (viewId == R.id.ll_qp) {// 半屏或全屏
@@ -977,6 +979,8 @@ public class PlayVideoFragment extends Fragment implements
                 if (isFullScreen) {// 全屏状态，需要切换为小屏
                     switchHalfScreen();
                 } else {//
+                    stopVideo();
+
                     switchFullScreen();
                 }
             } else if (viewId == R.id.ll_wrapper_select_lesson_layout_aty_showmovie) {// 打开剧集列表

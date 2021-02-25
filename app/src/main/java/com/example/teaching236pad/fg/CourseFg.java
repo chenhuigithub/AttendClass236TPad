@@ -35,7 +35,7 @@ public class CourseFg extends BaseNotPreLoadFg implements
     private boolean isPrepared;// 标志位，标志已经初始化完成
     public static boolean hasLoadOnce;// 是否已被加载过一次，第二次就不再去请求数据
 
-    private List<VideoAudio> videoList;// 音视频列表
+    private List<VideoAudio> videoList;// 音视频列表不
     private VideoAudio videoCurr;// 当前播放的视频
 
     private PlayVideoFragment videoFg;// 音视频
@@ -95,10 +95,10 @@ public class CourseFg extends BaseNotPreLoadFg implements
             videoFg = new PlayVideoFragment(videoCurr.getPath(),
                     videoCurr.getTitle(), videoList, false, "0");
             callbackForVideo = (OnListenerForPlayVideoCallback) videoFg;
-        }
 
-        fgTransaction.add(R.id.rl_video_layout_fg_course, videoFg);
-        fgTransaction.commit();
+            fgTransaction.add(R.id.rl_video_layout_fg_course, videoFg);
+            fgTransaction.commit();
+        }
     }
 
     @Override
@@ -135,7 +135,9 @@ public class CourseFg extends BaseNotPreLoadFg implements
 
     @Override
     public void doAfterClickBack() {
-
+        if (videoFg != null) {
+            videoFg.doOnStopVideo();
+        }
     }
 
     @Override
@@ -155,7 +157,29 @@ public class CourseFg extends BaseNotPreLoadFg implements
     public void onResume() {
         super.onResume();
 
-//        initVideo(videoCurr);
+        initVideo(videoCurr);
+
+//        videoFg.restartVideo();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        initVideo(videoCurr);
+
+//        if (videoFg != null) {
+//            videoFg.doOnStopVideo();
+//        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (videoFg != null) {
+            videoFg.doOnStopVideo();
+        }
     }
 
     @Override

@@ -288,6 +288,11 @@ public class MainActivity extends FragmentActivity implements InterfacesCallback
 
         @Override
         public void onClick(View v) {
+            if (index != 2 && callbackForCourse != null) {
+                callbackForCourse.doAfterClickBack();
+            }
+
+
             TextView tv = (TextView) v;
             tv.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.red03));
 
